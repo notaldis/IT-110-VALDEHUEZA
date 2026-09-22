@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Activity #2</title>
+</head>
+<body>
+    
+    <!--1. Images-->
+    <h1>Random Images</h1>
+    <figure>
+        <img src="tungtungtungsahur.jpg" alt="tungtungtungsahur" width="300">
+          <figcaption>This is Tung Tung Tung Sahur!</figcaption><br><br><br><br><br>
+    </figure>
+
+    <h1>Ballerina Cappuccinna</h1>
+    <img src="ballerinaCappucinna.jpg" alt="ballerinaCappucinna" width="300"><br><br><br><br><br><br><br><br><br>
+
+    <h1>Lirili Larila</h1>
+    <img src="liriliLarila.jpg" alt="liriliLarila" width="300"><br><br><br><br><br><br><br><br><br><br><br>
+
+    <!--2. Hyperlinks-->
+    <!--  Internal link:  -->
+    <h1>Internal Link</h1>
+    <a href="tags.html">Go to Home Page</a><br><br><br>
+
+    <!--  External link:  -->
+    <h1>External Link</h1>
+    <a href="https://www.google.com/search?client=opera-gx&q=tungtungtungsahur&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank">Visit Google</a>
+
+    <!--  Email Link  -->
+    <h1>Email Link</h1>
+    <a href="mailto:example@example.com">Send Email</a>
+
+    <!--  Anchor Link  -->
+    <h1>Anchor Link</h1>
+    <a href="#top">Go to Top</a>
+
+    <!--3. MultiMedia-->
+    <h1>MultiMedia</h1>
+    <strong><p>1. Audio</p></strong>
+    <a>Real voice of Tung Tung Tung Sahur</a>
+    <br>
+    <audio controls>
+        <source src="tungtungtungsahurAudio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.  <!-- This is a fallback text -->
+    </audio>
+
+    <strong><p>2. Video</p></strong>
+    <a>Rare video footage of the Almighty Tung Tung Tung Sahur</a>
+    <br>
+    <video controls width="320" height="240">
+        <source src="tungtungtungsahurVideo.mp4" type="video/mp4">
+        Your browser does not support the video element. <!-- This is a fallback text -->
+    </video>
+
+    <!-- 4. Useful Tags -->
+    <h1>Useful Tags</h1>
+
+    <!-- I chose the blockquote tag to display an indented block of quoted text with a referenced citation source URL. -->
+    <blockquote cite="https://en.wikipedia.org/wiki/Tung_Tung_Tung_Sahur">
+        A terrifying anomaly that only appears at sahur. It is said that if someone is called for sahur three times and doesn't answer, then this creature will come to your house.
+    </blockquote>
+
+    <!-- I chose the mark tag to visually highlight important or high-priority words on the page with a yellow background. -->
+    <p>Make sure to <mark>always answer</mark> when called!</p>
+
+    <!-- I chose the abbr tag to provide a definition tooltip when hovering over an abbreviation or term. -->
+    <p>Watch out during <abbr title="Islamic pre-dawn meal">Sahur</abbr>.</p>
+
+    <!-- 5. HTML DOM -->
+    <h1 id="dom-section">HTML DOM</h1>
+    <p id="demo">Click the button to change the text color of this paragraph.</p>
+    <button id="dom-btn" type="button" onclick="document.getElementById('demo').style.color = 'red'">Click Me!</button>
+
+    <!-- 
+      DOM Relationship Description:
+      In the Document Object Model tree of this webpage, the <body> element serves as the primary parent container that wraps around all visible elements. 
+      For example, the heading element with the ID "dom-section" is a direct child of the <body> element. 
+      Similarly, the paragraph element with the ID "demo" acts as a sibling to the button element, both residing as children underneath the main body hierarchy. 
+      This parent-child structure allows the browser and JavaScript to locate and manipulate elements precisely.
+    -->
+
+
+</body>
+</html>
