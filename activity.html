@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Activity #2</title>
 </head>
-<body>
+<body id="top">
     
     <!--1. Images-->
     <h1>Random Images</h1>
@@ -15,15 +15,22 @@
     </figure>
 
     <h1>Ballerina Cappuccinna</h1>
-    <img src="ballerinaCappucinna.jpg" alt="ballerinaCappucinna" width="300"><br><br><br><br><br><br><br><br><br>
+    <figure>
+       <img src="ballerinaCappucinna.jpg" alt="ballerinaCappucinna" width="300">
+       <figcaption>This is Ballerina Cappuccinna!</figcaption><br><br><br><br><br>
+    </figure>
+    
 
     <h1>Lirili Larila</h1>
-    <img src="liriliLarila.jpg" alt="liriliLarila" width="300"><br><br><br><br><br><br><br><br><br><br><br>
+    <figure>
+        <img src="liriliLarila.jpg" alt="liriliLarila" width="300">
+        <figcaption>This is Lirili Larila!</figcaption><br><br><br><br><br>
+    </figure>
 
     <!--2. Hyperlinks-->
     <!--  Internal link:  -->
     <h1>Internal Link</h1>
-    <a href="tags.html">Go to Home Page</a><br><br><br>
+    <a href="tungtungJumpScare.html">Go to Almighty Tung Tung Tung Sahur Page</a><br><br><br>
 
     <!--  External link:  -->
     <h1>External Link</h1>
@@ -40,7 +47,7 @@
     <!--3. MultiMedia-->
     <h1>MultiMedia</h1>
     <strong><p>1. Audio</p></strong>
-    <a>Real voice of Tung Tung Tung Sahur</a>
+    <p>Real voice of Tung Tung Tung Sahur</p>
     <br>
     <audio controls>
         <source src="tungtungtungsahurAudio.mp3" type="audio/mpeg">
@@ -48,7 +55,7 @@
     </audio>
 
     <strong><p>2. Video</p></strong>
-    <a>Rare video footage of the Almighty Tung Tung Tung Sahur</a>
+    <p>Rare video footage of the Almighty Tung Tung Tung Sahur</p>
     <br>
     <video controls width="320" height="240">
         <source src="tungtungtungsahurVideo.mp4" type="video/mp4">
@@ -71,8 +78,8 @@
 
     <!-- 5. HTML DOM -->
     <h1 id="dom-section">HTML DOM</h1>
-    <p id="demo">Click the button to change the text color of this paragraph.</p>
-    <button id="dom-btn" type="button" onclick="document.getElementById('demo').style.color = 'red'">Click Me!</button>
+    <p id="demo">This paragraph is identified for DOM inspection.</p>
+    <button id="dom-btn" type="button">Click Me!</button>
 
     <!-- 
       DOM Relationship Description:
@@ -81,7 +88,6 @@
       Similarly, the paragraph element with the ID "demo" acts as a sibling to the button element, both residing as children underneath the main body hierarchy. 
       This parent-child structure allows the browser and JavaScript to locate and manipulate elements precisely.
     -->
-
 
 </body>
 </html>
