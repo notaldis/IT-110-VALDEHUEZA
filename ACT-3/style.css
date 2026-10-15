@@ -1,0 +1,228 @@
+/* ==========================================================
+   SECTION 1: RESET (Part A, B, C)
+   Universal selector: removes browser default spacing and
+   makes every element use border-box sizing.
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   SECTION 2: BASE / TYPOGRAPHY
+   Type selectors, a grouping selector, and the three ways
+   to write colors: name, hex code, and rgb()/rgba().
+   ========================================================== */
+body {
+  font-family: Arial, Helvetica, sans-serif;  /* font-family */
+  font-size: 1rem;                            /* rem unit */
+  background-color: lightsteelblue;           /* color as a NAME */
+  color: #222222;                             /* color as a HEX code */
+  line-height: 1.5;
+}
+
+/* Grouping selector: h1 and h2 share the same font settings */
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;                          /* font-weight */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+/* ----- CASCADE DEMONSTRATION (Part A) -----
+   Two rules target the same element (<h2> inside .card).
+   The color on the rule below (".card h2" -> navy) WINS,
+   even though the plain "h2" rule (tomato) comes AFTER it.
+   Why? ".card h2" has higher specificity (0,1,1: one class
+   + one element) than "h2" (0,0,1: one element). Specificity
+   is checked before source order; order only breaks ties. */
+.card h2 {
+  color: navy;
+}
+
+h2 {
+  color: tomato;  /* loses to ".card h2" because of lower specificity */
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Pseudo-element: ::before adds a small decorative symbol before each h2 */
+h2::before {
+  content: "\2605 ";            /* a star + space */
+  color: goldenrod;
+}
+
+/* ==========================================================
+   SECTION 3: LAYOUT (Part C)
+   ========================================================== */
+header,
+footer {
+  text-align: center;           /* centers text in header and footer */
+  background-color: #1d3557;
+  color: white;
+  padding: 24px 0;              /* px unit */
+}
+
+footer {
+  margin-top: 8%;               /* % unit (second kind of unit) */
+}
+
+main {
+  padding-top: 30px;
+}
+
+/* ==========================================================
+   SECTION 4: COMPONENTS
+   ========================================================== */
+
+/* ----- .card (class selector) -----
+   TOTAL RENDERED WIDTH of one .card (box-sizing: border-box):
+   The width property already includes padding and border, so
+   the card renders exactly 500px wide:
+     width 500px = content 456px + padding 20px x 2 (40px)
+                   + border 2px x 2 (4px)
+     456 + 40 + 4 = 500px
+   (Margins are not part of the width.) */
+.card {
+  width: 500px;
+  padding: 20px;
+  border: 2px solid #457b9d;    /* width, style, and color in one line */
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.9);  /* color as RGBA */
+  margin: 0 auto;               /* centers each card horizontally */
+  margin-bottom: 24px;          /* spaces the cards apart */
+  text-align: left;
+}
+
+/* Descendant selector: any <p> inside a .card */
+.card p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+/* Class selector: .intro (uses properties that do not conflict with .card p) */
+.intro {
+  font-weight: bold;
+  color: darkslateblue;
+}
+
+/* Pseudo-element: ::first-letter on .intro */
+.intro::first-letter {
+  font-size: 1.6em;             /* em unit */
+  color: crimson;
+}
+
+/* ID selector: #about stands out from the other cards.
+   Also the positioning parent for the badge (position: relative). */
+#about {
+  position: relative;
+  border-color: crimson;
+  border-width: 3px;
+}
+
+/* Badge in the top-right corner of #about (position: absolute) */
+#about::after {
+  content: "NEW";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: crimson;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ==========================================================
+   SECTION 5: NAVIGATION (Part B pseudo-class + Part D inline-block)
+   ========================================================== */
+nav {
+  margin-top: 10px;
+}
+
+/* inline-block lets the links keep sitting in a row while
+   also accepting width/height-style padding and margins */
+nav a {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 4px;
+  background-color: #457b9d;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+/* Pseudo-class: hover effect on nav links */
+nav a:hover {
+  background-color: goldenrod;
+  color: #1d3557;
+}
+
+/* ==========================================================
+   SECTION 6: SKILLS LIST (Part D flexbox)
+   ========================================================== */
+.skills-list {
+  display: flex;                /* flex container */
+  gap: 12px;                    /* space between items */
+  justify-content: center;      /* lays items out centered in a row */
+  list-style: none;
+}
+
+/* Child selector: only <li> that are direct children of .skills-list */
+.skills-list > li {
+  background-color: #a8dadc;
+  color: #1d3557;
+  padding: 4px 14px;
+  border-radius: 999px;         /* pill / tag shape */
+  font-size: 0.9rem;
+}
+
+/* ==========================================================
+   SECTION 7: DISPLAY AND VISIBILITY (Part D)
+   VISIBLE DIFFERENCE: display: none removes .hide-none from
+   the layout completely, so the paragraphs below it move up and
+   there is NO gap. visibility: hidden only makes .hide-visibility
+   invisible; it still takes up its space, so an EMPTY GAP stays
+   on the page where the text would have been.
+   ========================================================== */
+.hide-none {
+  display: none;
+}
+
+.hide-visibility {
+  visibility: hidden;
+}
+
+/* Fixed height + overflow: auto => a scrollbar appears when the
+   text is taller than 120px. */
+.scroll-box {
+  height: 120px;
+  overflow: auto;
+}
+
+/* ==========================================================
+   REFLECTION ANSWERS
+
+   1. In Part A, ".card h2" (navy) won over "h2" (tomato) even though
+      "h2" was written later. This is because the cascade looks at
+      specificity first: ".card h2" has a class and an element (0,1,1),
+      while "h2" has only an element (0,0,1). Source order only decides
+      the winner when two rules have equal specificity.
+
+   2. With content-box, width: 500px applies only to the content area,
+      so padding and border are added on top:
+      500 (content) + 20 + 20 (padding) + 2 + 2 (border) = 544px.
+      (For #about, whose border is 3px, it would be 546px.)
+
+   3. I would use visibility: hidden when the element's space must be
+      kept so the layout does not shift, for example hiding an error
+      message or an icon that appears later, or when I want to toggle
+      something on and off without making the rest of the page jump.
+      I would use display: none when the element should be fully removed
+      from the layout.
+   ========================================================== */
